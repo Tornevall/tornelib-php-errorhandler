@@ -2,7 +2,8 @@
 
 namespace TorneLIB\Exception;
 
-class ExceptionHandler extends \Exception {
+class ExceptionHandler extends \Exception
+{
 
     public function __construct(
         $message = 'Unknown exception',
@@ -19,11 +20,34 @@ class ExceptionHandler extends \Exception {
                 // Use bad request when unknown and LIB_ERROR_HTTP is enabled.
                 $code = 400;
             }
+        } else {
+            if (!empty($code) && is_string($code)) {
+                $code = $this->getConstantedValue($code);
+            }
         }
+
         parent::__construct($message, $code, $previous);
         $this->traceFunction = $fromFunction;
         $this->stringifiedCode = $stringifiedCode;
         $this->setStringifiedCode();
+    }
+
+    private function getConstantedValue($code) {
+        // Make it possible to push a stringified code into this exceptionhandler.
+        $numericConstant = @constant(sprintf('TorneLIB\Exception\Constants::%s', $code));
+        if ($numericConstant) {
+            $code = $numericConstant;
+        } else {
+            if (!defined('LIB_ERROR_HTTP')) {
+                // Use internal error.
+                $code = Constants::LIB_UNHANDLED;
+            } else {
+                // Use bad request when unknown and LIB_ERROR_HTTP is enabled.
+                $code = 400;
+            }
+        }
+
+        return $code;
     }
 
     /**
