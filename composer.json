@@ -3,9 +3,7 @@
     "description": "Global exception and errorhandling for TorneLIB, with all errorcodes stored in the same place.",
     "minimum-stability": "stable",
     "license": "Apache-2.0",
-    "require": {
-        "php": ">=5.4"
-    },
+    "require": {},
     "authors": [
         {
             "name": "Tomas Tornevall",
