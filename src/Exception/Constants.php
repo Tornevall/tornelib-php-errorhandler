@@ -14,5 +14,8 @@ abstract class Constants
     const LIB_INVALID_URL = 1002;
 
     /** @var int Usually thrown when there's no URL present. */
-    const LIB_EMPTY_URL = 1002;
+    const LIB_EMPTY_URL = 1003;
+
+    /** @var int When trying to fetch headers from a curl session that is based on multiple requests, correct url must also be specifed. */
+    const LIB_MULTI_HEADER = 1004;
 }
