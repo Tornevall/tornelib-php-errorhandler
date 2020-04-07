@@ -4,13 +4,15 @@ namespace TorneLIB\Exception;
 
 class ExceptionHandler extends \Exception
 {
+    private $extendException;
 
     public function __construct(
         $message = 'Unknown exception',
         $code = 0,
         \Exception $previous = null,
         $stringifiedCode = null,
-        $fromFunction = ''
+        $fromFunction = '',
+        $extendException = null
     ) {
         if (!$code) {
             if (!defined('LIB_ERROR_HTTP')) {
@@ -30,6 +32,7 @@ class ExceptionHandler extends \Exception
         $this->traceFunction = $fromFunction;
         $this->stringifiedCode = $stringifiedCode;
         $this->setStringifiedCode();
+        $this->extendException = $extendException;
     }
 
     private function getConstantedValue($code)
@@ -93,5 +96,21 @@ class ExceptionHandler extends \Exception
     public function getTraceFunction()
     {
         return $this->traceFunction;
+    }
+
+    /**
+     * @param mixed $extendException
+     */
+    public function setExtendException($extendException)
+    {
+        $this->extendException = $extendException;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getExtendException()
+    {
+        return $this->extendException;
     }
 }
