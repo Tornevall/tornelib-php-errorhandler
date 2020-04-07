@@ -18,4 +18,6 @@ abstract class Constants
 
     /** @var int When trying to fetch headers from a curl session that is based on multiple requests, correct url must also be specifed. */
     const LIB_MULTI_HEADER = 1004;
+
+    const LIB_CONFIGWRAPPER_VAR_NOT_SET = 1005;
 }

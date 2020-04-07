@@ -32,7 +32,8 @@ class ExceptionHandler extends \Exception
         $this->setStringifiedCode();
     }
 
-    private function getConstantedValue($code) {
+    private function getConstantedValue($code)
+    {
         // Make it possible to push a stringified code into this exceptionhandler.
         $numericConstant = @constant(sprintf('TorneLIB\Exception\Constants::%s', $code));
         if ($numericConstant) {
