@@ -46,4 +46,15 @@ abstract class Constants
      * @var int
      */
     const LIB_UTILS_MEMORY_FAILSET = 1006;
+
+    /**
+     * Thrown on obsolete methods, used in earlier versions.
+     * @var int
+     */
+    const LIB_METHOD_OBSOLETE = 1007;
+
+    /**
+     * @var int When no proper network driver could be found to communicate with.
+     */
+    const LIB_NETCURL_NETWRAPPER_NO_DRIVER_FOUND = 1008;
 }
