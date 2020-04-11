@@ -62,4 +62,9 @@ abstract class Constants
      * @var int Wrapper is unhandled.
      */
     const LIB_NETCURL_NETWRAPPER_UNHANDLED_WRAPPER = 1009;
+
+    /**
+     * @var int Library class should not be used any more as it is considred deprecated/obsolete.
+     */
+    const LIB_DEPRECATED_CLASS = 65000;
 }
