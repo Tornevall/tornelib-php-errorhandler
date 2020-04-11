@@ -57,4 +57,9 @@ abstract class Constants
      * @var int When no proper network driver could be found to communicate with.
      */
     const LIB_NETCURL_NETWRAPPER_NO_DRIVER_FOUND = 1008;
+
+    /**
+     * @var int Wrapper is unhandled.
+     */
+    const LIB_NETCURL_NETWRAPPER_UNHANDLED_WRAPPER = 1009;
 }

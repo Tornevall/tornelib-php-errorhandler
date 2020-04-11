@@ -9,7 +9,7 @@ class ExceptionHandler extends \Exception
     public function __construct(
         $message = 'Unknown exception',
         $code = 0,
-        \Exception $previous = null,
+        $previous = null,
         $stringifiedCode = null,
         $fromFunction = '',
         $extendException = null
