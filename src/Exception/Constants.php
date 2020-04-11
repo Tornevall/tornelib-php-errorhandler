@@ -64,6 +64,16 @@ abstract class Constants
     const LIB_NETCURL_NETWRAPPER_UNHANDLED_WRAPPER = 1009;
 
     /**
+     * @var int Cipher does not exist in current openssl driver.
+     */
+    const LIB_SSL_CIPHER_UNAVAILABLE = 3000;
+
+    /**
+     * @var int No key or IV set for encryption.
+     */
+    const LIB_SSL_CIPHER_NO_KEYS = 3001;
+
+    /**
      * @var int Library class should not be used any more as it is considred deprecated/obsolete.
      */
     const LIB_DEPRECATED_CLASS = 65000;
