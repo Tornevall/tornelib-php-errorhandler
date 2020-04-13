@@ -92,4 +92,9 @@ abstract class Constants
      * @var int Library class is not available, as it has been disabled (preferrably from php.ini).
      */
     const LIB_CLASS_DISABLED = 65002;
+
+    /**
+     * @var int IO Library could not extract data properly.
+     */
+    const LIB_IO_EXTRACT_XPATH_ERROR = 65003;
 }
