@@ -77,4 +77,14 @@ abstract class Constants
      * @var int Library class should not be used any more as it is considred deprecated/obsolete.
      */
     const LIB_DEPRECATED_CLASS = 65000;
+
+    /**
+     * @var int Library class is not available, as it is missing or not installed.
+     */
+    const LIB_CLASS_UNAVAILABLE = 65001;
+
+    /**
+     * @var int Library class is not available, as it has been disabled (preferrably from php.ini).
+     */
+    const LIB_CLASS_DISABLED = 65002;
 }
