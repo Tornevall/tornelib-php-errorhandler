@@ -69,6 +69,11 @@ abstract class Constants
     const LIB_NETCURL_DOMAIN_OR_HOST_VALIDATION_FAILURE = 1010;
 
     /**
+     * @var int Used during ip address validations.
+     */
+    const LIB_NETCURL_INVALID_IP_ADDRESS = 1011;
+
+    /**
      * @var int Cipher does not exist in current openssl driver.
      */
     const LIB_SSL_CIPHER_UNAVAILABLE = 3000;
