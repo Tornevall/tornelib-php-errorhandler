@@ -64,6 +64,11 @@ abstract class Constants
     const LIB_NETCURL_NETWRAPPER_UNHANDLED_WRAPPER = 1009;
 
     /**
+     * @var int Used by getUrlDomain amongst others when validating host or domain name.
+     */
+    const LIB_NETCURL_DOMAIN_OR_HOST_VALIDATION_FAILURE = 1010;
+
+    /**
      * @var int Cipher does not exist in current openssl driver.
      */
     const LIB_SSL_CIPHER_UNAVAILABLE = 3000;
