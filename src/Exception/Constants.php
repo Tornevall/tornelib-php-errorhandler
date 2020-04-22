@@ -94,20 +94,27 @@ abstract class Constants
     const LIB_CLASS_UNAVAILABLE = 65001;
 
     /**
-     * @var int Method unavailable. Normally thrown when library or driver is missing. Seen in CryptoLib.
+     * @var int Method/function unavailable. Normally thrown when library or driver is missing. Seen in CryptoLib.
      */
     const LIB_METHOD_OR_LIBRARY_UNAVAILABLE = 65002;
 
     /**
+     * @var int Method/function is disabled.
+     */
+    const LIB_METHOD_OR_LIBRARY_DISABLED = 65003;
+
+    /**
      * @var int Library class is not available, as it has been disabled (preferrably from php.ini).
      */
-    const LIB_CLASS_DISABLED = 65002;
+    const LIB_CLASS_DISABLED = 65004;
 
     /**
      * @var int IO Library could not extract data properly.
      */
-    const LIB_IO_EXTRACT_XPATH_ERROR = 65003;
+    const LIB_IO_EXTRACT_XPATH_ERROR = 65005;
 
-    /** @var int Thrown from the Flag-class. */
+    /**
+     * @var int Thrown from the Flag class.
+     */
     const LIB_FLAG_EXCEPTION = 65004;
 }
