@@ -107,4 +107,7 @@ abstract class Constants
      * @var int IO Library could not extract data properly.
      */
     const LIB_IO_EXTRACT_XPATH_ERROR = 65003;
+
+    /** @var int Thrown from the Flag-class. */
+    const LIB_FLAG_EXCEPTION = 65004;
 }
