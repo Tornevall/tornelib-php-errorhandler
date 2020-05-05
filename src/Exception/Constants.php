@@ -2,6 +2,10 @@
 
 namespace TorneLIB\Exception;
 
+/**
+ * Class Constants
+ * @package TorneLIB\Exception
+ */
 abstract class Constants
 {
     /**
@@ -117,4 +121,10 @@ abstract class Constants
      * @var int Thrown from the Flag class.
      */
     const LIB_FLAG_EXCEPTION = 65004;
+
+    /**
+     * @var int PHP version is too old.
+     * @since 6.1.5
+     */
+    const LIB_TOO_OLD_PHP = 65005;
 }
