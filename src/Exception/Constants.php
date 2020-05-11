@@ -77,8 +77,11 @@ abstract class Constants
      */
     const LIB_NETCURL_INVALID_IP_ADDRESS = 1011;
 
-    /** @var int When an exception are thrown during a multi-url request, exceptions are collected and thrown back with this code. */
-    const LIB_NETCURL_MULTICURL_EXCEPTION_DISCOVERY = 1012;
+    /**
+     * @var int When an exception are thrown during a multi-url request, exceptions are collected and thrown back with this code.
+     * @since 6.1.7
+     */
+    const LIB_NETCURL_CURL_MULTI_EXCEPTION_DISCOVERY = 1012;
 
     /**
      * @var int Cipher does not exist in current openssl driver.

@@ -5,7 +5,7 @@ namespace TorneLIB\Exception;
 /**
  * Class ExceptionHandler
  * @package TorneLIB\Exception
- * @version 6.1.6
+ * @version 6.1.7
  */
 class ExceptionHandler extends \Exception
 {
