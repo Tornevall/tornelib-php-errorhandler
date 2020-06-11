@@ -2,10 +2,37 @@
 
 namespace TorneLIB\Exception;
 
+/**
+ * Class ExceptionHandler
+ * @package TorneLIB\Exception
+ * @version 6.1.7
+ */
 class ExceptionHandler extends \Exception
 {
+    /**
+     * @var null
+     */
     private $extendException;
 
+    /**
+     * @var string
+     */
+    private $traceFunction;
+
+    /**
+     * @var string
+     */
+    private $stringifiedCode;
+
+    /**
+     * ExceptionHandler constructor.
+     * @param string $message
+     * @param int $code
+     * @param null $previous
+     * @param null $stringifiedCode
+     * @param string $fromFunction
+     * @param null $extendException
+     */
     public function __construct(
         $message = 'Unknown exception',
         $code = 0,
@@ -35,6 +62,10 @@ class ExceptionHandler extends \Exception
         $this->extendException = $extendException;
     }
 
+    /**
+     * @param $code
+     * @return int|mixed
+     */
     private function getConstantedValue($code)
     {
         // Make it possible to push a stringified code into this exceptionhandler.
@@ -55,7 +86,7 @@ class ExceptionHandler extends \Exception
     }
 
     /**
-     *
+     * @return $this
      */
     private function setStringifiedCode()
     {
@@ -71,8 +102,13 @@ class ExceptionHandler extends \Exception
                 $this->code = $this->stringifiedCode;
             }
         }
+
+        return $this;
     }
 
+    /**
+     * @return string
+     */
     public function __toString()
     {
         if (empty($this->traceFunction)) {
@@ -83,7 +119,7 @@ class ExceptionHandler extends \Exception
     }
 
     /**
-     * @return |null
+     * @return string
      */
     public function getStringifiedCode()
     {

@@ -2,6 +2,10 @@
 
 namespace TorneLIB\Exception;
 
+/**
+ * Class Constants
+ * @package TorneLIB\Exception
+ */
 abstract class Constants
 {
     /**
@@ -64,9 +68,26 @@ abstract class Constants
     const LIB_NETCURL_NETWRAPPER_UNHANDLED_WRAPPER = 1009;
 
     /**
-     * @var int Invalid path or file location.
+     * @var int Used by getUrlDomain amongst others when validating host or domain name.
      */
-    const LIB_INVALID_PATH = 1010;
+    const LIB_NETCURL_DOMAIN_OR_HOST_VALIDATION_FAILURE = 1010;
+
+    /**
+     * @var int Used during ip address validations.
+     */
+    const LIB_NETCURL_INVALID_IP_ADDRESS = 1011;
+
+    /**
+     * @var int When an exception are thrown during a multi-url request, exceptions are collected and thrown back with this code.
+     * @since 6.1.7
+     */
+    const LIB_NETCURL_CURL_MULTI_EXCEPTION_DISCOVERY = 1012;
+
+    /**
+     * @var int Invalid path or file location.
+     * @since 6.1.8
+     */
+    const LIB_INVALID_PATH = 1013;
 
     /**
      * @var int Cipher does not exist in current openssl driver.
@@ -89,12 +110,33 @@ abstract class Constants
     const LIB_CLASS_UNAVAILABLE = 65001;
 
     /**
-     * @var int Method unavailable. Normally thrown when library or driver is missing. Seen in CryptoLib.
+     * @var int Method/function unavailable. Normally thrown when library or driver is missing. Seen in CryptoLib.
      */
     const LIB_METHOD_OR_LIBRARY_UNAVAILABLE = 65002;
 
     /**
+     * @var int Method/function is disabled.
+     */
+    const LIB_METHOD_OR_LIBRARY_DISABLED = 65003;
+
+    /**
      * @var int Library class is not available, as it has been disabled (preferrably from php.ini).
      */
-    const LIB_CLASS_DISABLED = 65002;
+    const LIB_CLASS_DISABLED = 65004;
+
+    /**
+     * @var int IO Library could not extract data properly.
+     */
+    const LIB_IO_EXTRACT_XPATH_ERROR = 65005;
+
+    /**
+     * @var int Thrown from the Flag class.
+     */
+    const LIB_FLAG_EXCEPTION = 65004;
+
+    /**
+     * @var int PHP version is too old.
+     * @since 6.1.5
+     */
+    const LIB_TOO_OLD_PHP = 65005;
 }
