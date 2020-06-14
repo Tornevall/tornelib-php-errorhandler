@@ -132,11 +132,23 @@ abstract class Constants
     /**
      * @var int Thrown from the Flag class.
      */
-    const LIB_FLAG_EXCEPTION = 65004;
+    const LIB_FLAG_EXCEPTION = 65006;
 
     /**
      * @var int PHP version is too old.
      * @since 6.1.5
      */
-    const LIB_TOO_OLD_PHP = 65005;
+    const LIB_TOO_OLD_PHP = 65007;
+
+    /**
+     * @var int SSL capabilities unavailable.
+     * @since 6.1.9
+     */
+    const LIB_SSL_UNAVAILABLE = 65008;
+
+    /**
+     * @var int Generic unavailable driver.
+     * @since 6.1.9
+     */
+    const LIB_GENERIC_DRIVER_UNAVAILABLE = 65009;
 }
