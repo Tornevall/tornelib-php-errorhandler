@@ -149,6 +149,27 @@ abstract class Constants
      */
     const LIB_DATABASE_EMPTY_JSON_CONFIG = 4003;
 
+    /**
+     * When not MySQL method is available.
+     * @var int
+     * @since 6.1.9
+     */
+    const LIB_DATABASE_DRIVER_UNAVAILABLE = 4004;
+
+    /**
+     * When trying to handle a database connection without initialization.
+     * @var int
+     * @since 6.1.9
+     */
+    const LIB_DATABASE_NO_CONNECTION_INITIALIZED = 4005;
+
+    /**
+     * When connection fails to a database server.
+     * @var int
+     * @since 6.1.9
+     */
+    const LIB_DATABASE_CONNECTION_EXCEPTION = 4006;
+
 
     /**
      * Library class should not be used any more as it is considred deprecated/obsolete.
