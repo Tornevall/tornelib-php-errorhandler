@@ -136,6 +136,21 @@ abstract class Constants
     const LIB_DATABASE_NOT_SET = 4001;
 
     /**
+     * Database type is not implemented.
+     * @var int
+     * @since 6.1.9
+     */
+    const LIB_DATABASE_NOT_IMPLEMENTED = 4002;
+
+    /**
+     * When database classes are loading configuration files that is empty, they can not be used properly.
+     * @var int
+     * @since 6.1.9
+     */
+    const LIB_DATABASE_EMPTY_JSON_CONFIG = 4003;
+
+
+    /**
      * Library class should not be used any more as it is considred deprecated/obsolete.
      * @var int
      * @since 6.1.0
