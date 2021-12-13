@@ -122,6 +122,12 @@ abstract class Constants
     const LIB_NETCURL_SOAP_POSSIBLE_TIMEOUT = 1015;
 
     /**
+     * @var int
+     * @since 6.1.13
+     */
+    const LIB_NETCURL_SOAP_REQUEST_TIMER_NOT_READY = 1016;
+
+    /**
      * Cipher does not exist in current openssl driver.
      * @var int
      * @since 6.1.8
