@@ -5,7 +5,7 @@ namespace TorneLIB\Exception;
 /**
  * Class Constants
  * @package TorneLIB\Exception
- * @version 6.1.13
+ * @version 6.1.14
  */
 abstract class Constants
 {
@@ -119,7 +119,7 @@ abstract class Constants
      * @var int
      * @since 6.1.13
      */
-    const LIB_NETCURL_SOAP_POSSIBLE_TIMEOUT = 1015;
+    const LIB_NETCURL_SOAP_TIMEOUT = 1015;
 
     /**
      * @var int
