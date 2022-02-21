@@ -128,6 +128,17 @@ abstract class Constants
     const LIB_NETCURL_SOAP_REQUEST_TIMER_NOT_READY = 1016;
 
     /**
+     * @since 6.1.16
+     */
+    const LIB_NETWORK_BAD_CIDR_STRING = 1017;
+
+    /**
+     * @since 6.1.16
+     */
+    const LIB_NETWORK_INVALID_IPV4 = 1018;
+
+
+    /**
      * Cipher does not exist in current openssl driver.
      * @var int
      * @since 6.1.8
