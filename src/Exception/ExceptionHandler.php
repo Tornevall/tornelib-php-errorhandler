@@ -110,8 +110,9 @@ class ExceptionHandler extends Exception
     private function setStringifiedCode()
     {
         if (empty($this->code) && !empty($this->stringifiedCode)) {
+            $constantStringify = sprintf('CONSTANTS::%s', $this->stringifiedCode);
             try {
-                $constant = constant('CONSTANTS::' . $this->stringifiedCode);
+                $constant = constant($constantStringify);
             } catch (Exception $regularConstantException) {
                 // Ignore this.
             }
