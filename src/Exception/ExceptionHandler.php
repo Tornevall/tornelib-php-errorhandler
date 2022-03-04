@@ -89,9 +89,9 @@ class ExceptionHandler extends Exception
                     $code = !defined('LIB_ERROR_HTTP') ? Constants::LIB_UNHANDLED : 400;
                 }
             } else {
-                $code = !defined('LIB_ERROR_HTTP') ? Constants::LIB_UNHANDLED : 400;
+                $undefinedCode = !defined('LIB_ERROR_HTTP') ? Constants::LIB_UNHANDLED : 400;
+                $code = empty($this->stringifiedCode) ? $undefinedCode : $this->stringifiedCode;
             }
-            restore_error_handler();
         }
         $return = $code;
 
@@ -109,10 +109,12 @@ class ExceptionHandler extends Exception
      */
     private function setStringifiedCode()
     {
-        if (empty($this->code) && !empty($this->stringifiedCode)) {
+        if ((empty($this->code) || $this->code === Constants::LIB_UNHANDLED) && !empty($this->stringifiedCode)) {
             $constantStringify = sprintf('CONSTANTS::%s', $this->stringifiedCode);
             try {
-                $constant = constant($constantStringify);
+                if (defined($constantStringify)) {
+                    $constant = constant($constantStringify);
+                }
             } catch (Exception $regularConstantException) {
                 // Ignore this.
             }

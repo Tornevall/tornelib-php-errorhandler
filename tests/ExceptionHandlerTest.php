@@ -48,4 +48,20 @@ class ExceptionHandlerTest extends TestCase
             static::assertTrue($e->getCode() === 500);
         }
     }
+
+    /**
+     * @test
+     */
+    public function stringifiedErrorCode() {
+        try {
+            throw new ExceptionHandler(
+                'stringified error',
+                0,
+                null,
+                'STRINGIFIED_ERROR'
+            );
+        } catch (ExceptionHandler $e) {
+            static::assertTrue($e->getCode() === 'STRINGIFIED_ERROR');
+        }
+    }
 }
