@@ -2,12 +2,14 @@
 
 namespace TorneLIB\Exception;
 
+use Exception;
+
 /**
  * Class ExceptionHandler
  * @package TorneLIB\Exception
- * @version 6.1.7
+ * @version 6.1.17
  */
-class ExceptionHandler extends \Exception
+class ExceptionHandler extends Exception
 {
     /**
      * @var null
@@ -68,17 +70,38 @@ class ExceptionHandler extends \Exception
      */
     private function getValueConstant($code)
     {
-        if (!defined('LIB_ERROR_HTTP_CUSTOM')) {
+        if (!defined('LIB_ERROR_HTTP_CUSTOM') && !is_numeric($code)) {
             // Make it possible to push a stringified code into this exceptionhandler.
-            $numericConstant = @constant(sprintf('TorneLIB\Exception\Constants::%s', $code));
-            if ($numericConstant) {
-                $code = $numericConstant;
+            $constantCodeId = sprintf('TorneLIB\Exception\Constants::%s', $code);
+
+            /**
+             * PHP >= 8.0.0
+             * If the constant is not defined, constant() now throws an Error exception; previously an E_WARNING was
+             * generated, and null was returned.
+             *
+             * @see https://www.php.net/manual/en/function.constant.php
+             */
+            if (defined($constantCodeId)) {
+                $numericConstant = constant($constantCodeId);
+                if ($numericConstant) {
+                    $code = $numericConstant;
+                } else {
+                    $code = !defined('LIB_ERROR_HTTP') ? Constants::LIB_UNHANDLED : 400;
+                }
             } else {
                 $code = !defined('LIB_ERROR_HTTP') ? Constants::LIB_UNHANDLED : 400;
             }
+            restore_error_handler();
+        }
+        $return = $code;
+
+        $codeType = gettype($code);
+        if ($codeType === 'string' && (int)$code > 0) {
+            // Make sure badly formatted integers are really handled as integers.
+            $return = (int)$code;
         }
 
-        return $code;
+        return $return;
     }
 
     /**
@@ -89,7 +112,7 @@ class ExceptionHandler extends \Exception
         if (empty($this->code) && !empty($this->stringifiedCode)) {
             try {
                 $constant = constant('CONSTANTS::' . $this->stringifiedCode);
-            } catch (\Exception $regularConstantException) {
+            } catch (Exception $regularConstantException) {
                 // Ignore this.
             }
             if (!empty($constant)) {
