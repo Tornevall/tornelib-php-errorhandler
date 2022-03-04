@@ -72,7 +72,7 @@ class ExceptionHandler extends Exception
     {
         if (!defined('LIB_ERROR_HTTP_CUSTOM') && !is_numeric($code)) {
             // Make it possible to push a stringified code into this exceptionhandler.
-            $constantCodeId = sprintf('TorneLIB\Exception\Constants::%s', $code);
+            $constantCode = sprintf('TorneLIB\Exception\Constants::%s', $code);
 
             /**
              * PHP >= 8.0.0
@@ -81,8 +81,8 @@ class ExceptionHandler extends Exception
              *
              * @see https://www.php.net/manual/en/function.constant.php
              */
-            if (defined($constantCodeId)) {
-                $numericConstant = constant($constantCodeId);
+            if (defined($constantCode)) {
+                $numericConstant = constant($constantCode);
                 if ($numericConstant) {
                     $code = $numericConstant;
                 } else {
