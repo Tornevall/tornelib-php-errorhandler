@@ -7,7 +7,7 @@ use Exception;
 /**
  * Class ExceptionHandler
  * @package TorneLIB\Exception
- * @version 6.1.19
+ * @version 6.1.20
  */
 class ExceptionHandler extends Exception
 {

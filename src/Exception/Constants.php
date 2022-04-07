@@ -5,7 +5,7 @@ namespace TorneLIB\Exception;
 /**
  * Class Constants
  * @package TorneLIB\Exception
- * @version 6.1.19
+ * @version 6.1.20
  */
 abstract class Constants
 {
@@ -141,6 +141,12 @@ abstract class Constants
      * @since 6.1.18
      */
     const LIB_NETCURL_CONNECTION_REFUSED = 1019;
+
+    /**
+     * @var int
+     * @since 6.1.20
+     */
+    const LIB_NETCURL_TIMEOUT = 1020;
 
     /**
      * Cipher does not exist in current openssl driver.
